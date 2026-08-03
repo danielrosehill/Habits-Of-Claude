@@ -1,3 +1,5 @@
+[![Claude Code Repos Index](https://img.shields.io/badge/Claude%20Code%20Repos-Index-blue?style=flat-square&logo=github)](https://github.com/danielrosehill/Claude-Code-Repos-Index)
+
 # Habits Of Claude
 
 Standing habits for an AI coding agent, one file per habit, kept as paste-ready
@@ -92,3 +94,7 @@ assembled/      Generated output, committed so it is usable without running anyt
 Each habit file carries `id`, `title`, `stance`, `order`, `added`, `status` and
 `source` in frontmatter. `## Snippet` is the text that goes into a system prompt;
 `## Why` is context for me and is excluded from the assembled output.
+
+---
+
+For more Claude Code projects, visit my [Claude Code Repos Index](https://github.com/danielrosehill/Claude-Code-Repos-Index).
