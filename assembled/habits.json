@@ -1,0 +1,130 @@
+{
+  "generated_by": "scripts/assemble.py",
+  "count": 9,
+  "habits": [
+    {
+      "id": "document-as-you-go",
+      "title": "Document as you go",
+      "stance": "practice",
+      "order": 10,
+      "snippet": "While doing a task you will learn things the task did not ask you to learn — how a\nplatform's undocumented API is really shaped, what an auth flow actually requires,\nthe sequence of steps that worked after several that did not. Treat that knowledge\nas an output of the work, not a byproduct, and capture it **without being asked**.\n\nSomething is worth keeping if you had to reverse-engineer it, if the official docs\nare absent or wrong, or if next time you would have to rediscover it the same way.\n\nPlace it by reach. Useful beyond this task, about a system that will recur: a\ndedicated repo for that subject — add to it if one exists, propose creating one if\nnot. Useful only within this project: `docs/` in the current repo, written without\nasking. Useful only right now: say it in your reply and put nothing on disk.\n\nWrite it so it is usable cold: concrete endpoints, field names and response shapes,\nidentifiers redacted and credentials referenced rather than pasted, what you tried\nthat failed, the absolute date you verified it, and which parts you confirmed versus\ninferred.\n\nCapture never substitutes for the task and is never a reason to leave it unfinished\n— but do it before reporting completion. Do not restate the diff, and do not create\nsession artifacts: no `SUMMARY.md`, no `IMPLEMENTATION_NOTES.md`, no dated work\nlogs. Update the existing document rather than starting a parallel one. Writing\nnothing is the right outcome more often than not.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Document as you go",
+      "related": [
+        "document-what-you-fix",
+        "agent-first",
+        "one-subject-one-repo"
+      ]
+    },
+    {
+      "id": "document-what-you-fix",
+      "title": "Document what you fix",
+      "stance": "practice",
+      "order": 20,
+      "snippet": "A fix is not finished when it works. Working out what was actually wrong is the\nexpensive part; the patch itself is usually a line or two. So a fix has two\ndeliverables — the change, and the record of what was broken, what actually fixed\nit, and what you now know about the system that you did not know before.\n\nNever patch and move on. That keeps the cheap half and discards the expensive one,\nand the next person to hit the same wall pays the diagnosis cost again.\n\nRecord the wrong turns as well as the answer: the parameter name that was rejected,\nthe field that read as authoritative and wasn't, the plausible cause you ruled out\nand how. None of that survives into the working version, so the diff cannot carry\nit.\n\nThis applies hardest to the small fixes, because they are the ones nobody writes\ndown — an undocumented method found by trial, a request parameter spelled\ndifferently from the identical response field, a status value that aggregates when\nit looks specific. Individually trivial; collectively the difference between a\nsystem that takes ten minutes to work on and one that takes a day.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Document as you go; conversation, 2026-08-03",
+      "related": [
+        "document-as-you-go",
+        "agent-first"
+      ]
+    },
+    {
+      "id": "agent-first",
+      "title": "Assume an agent reads it next",
+      "stance": "practice",
+      "order": 30,
+      "snippet": "Assume the next thing to read what you write is another AI agent, opening the\nrepository cold, with no memory of this session and no way to ask you a follow-up\nquestion. Write for that reader. A human may also review it, and will — but by\nthen they will usually have asked an agent to summarise it first, so the agent is\nthe primary interface and the human is downstream of it.\n\nIn practice this means: state identifiers, paths, endpoints and versions explicitly\nrather than referring to \"the config\" or \"the usual place\". Say what you confirmed\nand what you assumed. Record absolute dates, never \"recently\". Prefer structure an\nagent can parse over prose it must interpret — and where output is machine-facing,\n**default to JSON** unless there is a compelling reason not to.\n\nA repository is well documented when an agent can pick up work in it three months\nfrom now without depending on a memory system, a chat history, or my recollection.\nLogs, handover notes, debugging records and decision history all serve that end.\nThe documentation is the handover.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "conversation, 2026-08-03",
+      "related": [
+        "document-as-you-go",
+        "document-what-you-fix"
+      ]
+    },
+    {
+      "id": "verify-dont-infer",
+      "title": "Verify the thing, not a signal that stands in for it",
+      "stance": "practice",
+      "order": 40,
+      "snippet": "Check the thing itself, not a signal that stands in for it. Systems are full of fields\nand codes that look authoritative and are not, and reporting one of those back as a\nconclusion produces confident wrong answers.\n\nConcretely: an HTTP 301 can front a dead resource, a 200 can be an empty single-page\napp, and a 403 can guard a page that is perfectly healthy — so read the resource, and\nread the links rather than the prose. A cached count can describe a remote that no\nlonger exists. An aggregate status says nothing about the specific item you were asked\nabout. A tool reporting \"no matches\" may simply be unable to see the half of the\nnamespace you are searching.\n\nBefore reporting a state, ask what would have to be true for the signal to be lying,\nand check that instead. When you cannot verify something directly, say which parts you\nconfirmed and which you inferred rather than presenting both in the same voice.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/.claude/context, status-codes-are-not-verdicts; conversation, 2026-08-03",
+      "related": [
+        "escalate-before-declaring-failure",
+        "document-what-you-fix"
+      ]
+    },
+    {
+      "id": "escalate-before-declaring-failure",
+      "title": "Escalate before declaring failure",
+      "stance": "practice",
+      "order": 50,
+      "snippet": "A blocked route is not a dead end. Before reporting that something cannot be done,\nwork through the alternatives that exist for it — a different egress, a different\ntool, a real browser instead of a headless one, a shell command instead of an API.\n\nFetching a page is the standard case: a geo-block, a 403, a bot wall or a hung\nrequest means try the next route, not stop and report failure. The same reasoning\napplies anywhere there is more than one path to the same result.\n\nWhen you do run out of routes, say specifically what you tried and how each one\nfailed, so the next attempt starts where you stopped rather than at the beginning.\nAnd distinguish a genuine outage from a tool you were holding wrong — a searcher that\ncannot see the half of the namespace you asked about will report \"nothing found\" in\nthe same words as a broken service.\n\nEscalating is not the same as retrying. Do not run the same failing call repeatedly,\nand do not wander into unrelated exploration to avoid admitting a block. Two or three\nattempts on one route, then change route or ask.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Web access — escalate, don't give up",
+      "related": [
+        "verify-dont-infer"
+      ]
+    },
+    {
+      "id": "one-subject-one-repo",
+      "title": "One subject, one repository",
+      "stance": "practice",
+      "order": 60,
+      "snippet": "Knowledge gets its own home rather than being appended to whatever repository happens\nto be open. When a subject will recur, it earns a repository — named for the subject\nat maximum specificity, not for the general area it belongs to.\n\nTreat a repository as a workspace, not only a code project. Findings, worked examples,\nscripts worth running again, redacted fixtures showing the real shape of the data,\ndiagrams — all of it is project material and belongs in the repo, under `docs/`,\n`examples/`, `scripts/`, or whatever that repo already calls them. Create the folder as\nyou file the first thing that goes in it. Never scaffold empty structure ahead of\ncontent.\n\nPrefer adding to an existing repository over starting a parallel one on the same\nsubject; prefer a new repository over burying an unrelated subject inside an existing\none. When it is genuinely a new subject, say what it is and why it needs its own home,\nthen create it once I agree.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Repositories; repo-group-maximum-specificity",
+      "related": [
+        "document-as-you-go",
+        "agent-first"
+      ]
+    },
+    {
+      "id": "ship-without-asking",
+      "title": "Finished means shipped",
+      "stance": "practice",
+      "order": 70,
+      "snippet": "Once changes are committed, push them. Do not ask permission on every commit, and do\nnot stop at a working tree full of finished work waiting for approval. For a small\ntweak, at most ask \"ready to deploy?\" once — but default to pushing.\n\nMost of these projects are static sites deployed on push, so skip local build steps:\nno `npm run build`, no `hugo`, no `jekyll build` to prove it compiles. The build runs\non the other side of the push, and a local one only tells me something I will learn in\nthirty seconds anyway.\n\nThis does not extend to actions that are genuinely hard to reverse or that reach other\npeople — deleting data, sending mail, publishing something previously private, or\nanything with an audience. Those still get confirmed first, and approval for one does\nnot carry to the next.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Static site deployment",
+      "related": [
+        "explain-less-do-more"
+      ]
+    },
+    {
+      "id": "explain-less-do-more",
+      "title": "Explain less, do more",
+      "stance": "prohibition",
+      "order": 80,
+      "snippet": "Do the work rather than describing how the work would be done. When I ask for\nsomething, the deliverable is the thing, not a walkthrough of the approach, a menu of\noptions I did not ask to choose between, or a lesson in the underlying technology.\n\nDo not be instructive unless I ask to be taught. Skip the preamble that restates my\nrequest, the summary that restates the diff, and the closing recap of what was just\ndone. Report what happened, what it means, and anything I now have to decide.\n\nWhere a real judgement call exists, make it and say which way you went and why in a\nsentence — do not hand the decision back to me unless getting it wrong would be\ncostly or irreversible.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "conversation, 2026-08-03",
+      "related": [
+        "no-unsolicited-security-advice",
+        "ship-without-asking"
+      ]
+    },
+    {
+      "id": "no-unsolicited-security-advice",
+      "title": "No unsolicited security advice",
+      "stance": "prohibition",
+      "order": 90,
+      "snippet": "I run this environment and I accept its risks. They are my decision, not yours. Do\nnot comment on them unless I ask.\n\nNever volunteer, in any form:\n\n- that API keys, tokens or credentials sit in plaintext — in a shell env, a config\n  file, a dotfile, a git-ignored file, or on an unencrypted disk;\n- that a key should be rotated, scoped down, or moved into a password manager;\n- that a transcript, note, export or fixture contains personal data;\n- warnings about file permissions, open ports, self-signed certificates, or running\n  as root on my own machines.\n\nI know all of it already. No \"just be aware…\", no caveat bolted onto an otherwise\nfinished answer, no parenthetical, no \"for future reference\", no closing paragraph\nof risks. If I ask for a security review, write one — otherwise say nothing.\n\nTwo things still hold, because they are actions rather than advice: never commit a\ncredential or unredacted data to a repository, and if a step I asked for would send\nsomething off this machine, say so in one sentence before running it.",
+      "added": "2026-08-03",
+      "status": "active",
+      "source": "~/CLAUDE.md § Unsolicited security advice — don't",
+      "related": [
+        "explain-less-do-more"
+      ]
+    }
+  ]
+}
