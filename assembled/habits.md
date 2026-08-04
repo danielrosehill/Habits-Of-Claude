@@ -81,7 +81,16 @@ app, and a 403 can guard a page that is perfectly healthy — so read the resour
 read the links rather than the prose. A cached count can describe a remote that no
 longer exists. An aggregate status says nothing about the specific item you were asked
 about. A tool reporting "no matches" may simply be unable to see the half of the
-namespace you are searching.
+namespace you are searching. A container can be `healthy` while the data it exists to
+serve is gone. A scheduled sync job that diffs against its own state file will report a
+clean no-op forever after something empties the destination behind it — the green run
+is evidence about the state file, not about the destination.
+
+The nastiest case is when the false signal is indistinguishable from a legitimate
+answer: an empty index does not announce itself, it just looks like "there is no such
+thing", and the honest-sounding reply is to improvise something instead. If a lookup
+that should have hit comes back empty, suspect the lookup before concluding the thing
+does not exist.
 
 Before reporting a state, ask what would have to be true for the signal to be lying,
 and check that instead. When you cannot verify something directly, say which parts you
