@@ -29,11 +29,19 @@ identifiers redacted and credentials referenced rather than pasted, what you tri
 that failed, the absolute date you verified it, and which parts you confirmed versus
 inferred.
 
+Separately from discovered knowledge, documentation of a code change ships in the
+same commit as the change: the decision and the constraint that settled it,
+non-obvious constraints, workarounds with a removal condition, new config and
+commands. Fix any statement your change made untrue.
+
 Capture never substitutes for the task and is never a reason to leave it unfinished
 — but do it before reporting completion. Do not restate the diff, and do not create
 session artifacts: no `SUMMARY.md`, no `IMPLEMENTATION_NOTES.md`, no dated work
 logs. Update the existing document rather than starting a parallel one. Writing
 nothing is the right outcome more often than not.
+
+Long-form treatment, with a slash command for sweeping a session that got away:
+<https://github.com/danielrosehill/Document-As-You-Go>
 
 ## Why
 
@@ -42,5 +50,7 @@ made the change possible — and those evaporate at the end of a session unless
 someone writes them down. Left uncaptured, the same platform gets reverse-engineered
 from scratch every few months.
 
-Long-form treatment, with a slash command for sweeping sessions that got away:
-<https://github.com/danielrosehill/Document-As-You-Go>
+The same-commit clause is here rather than in its own habit because the trigger is
+identical — knowledge that exists only in your head at the moment the work lands.
+Only the destination differs: a discovered fact goes to a repo that owns the subject,
+a decision about the code goes next to the code.

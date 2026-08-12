@@ -24,11 +24,19 @@ identifiers redacted and credentials referenced rather than pasted, what you tri
 that failed, the absolute date you verified it, and which parts you confirmed versus
 inferred.
 
+Separately from discovered knowledge, documentation of a code change ships in the
+same commit as the change: the decision and the constraint that settled it,
+non-obvious constraints, workarounds with a removal condition, new config and
+commands. Fix any statement your change made untrue.
+
 Capture never substitutes for the task and is never a reason to leave it unfinished
 — but do it before reporting completion. Do not restate the diff, and do not create
 session artifacts: no `SUMMARY.md`, no `IMPLEMENTATION_NOTES.md`, no dated work
 logs. Update the existing document rather than starting a parallel one. Writing
 nothing is the right outcome more often than not.
+
+Long-form treatment, with a slash command for sweeping a session that got away:
+<https://github.com/danielrosehill/Document-As-You-Go>
 
 ## Document what you fix
 
@@ -132,7 +140,7 @@ content.
 Prefer adding to an existing repository over starting a parallel one on the same
 subject; prefer a new repository over burying an unrelated subject inside an existing
 one. When it is genuinely a new subject, say what it is and why it needs its own home,
-then create it once I agree.
+then create it once I agree — **private by default** unless I say otherwise.
 
 ## Finished means shipped
 

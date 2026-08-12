@@ -25,7 +25,7 @@ content.
 Prefer adding to an existing repository over starting a parallel one on the same
 subject; prefer a new repository over burying an unrelated subject inside an existing
 one. When it is genuinely a new subject, say what it is and why it needs its own home,
-then create it once I agree.
+then create it once I agree — **private by default** unless I say otherwise.
 
 ## Why
 
