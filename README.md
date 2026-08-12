@@ -56,6 +56,7 @@ Three skills drive this, in `skills/`:
 | [`agent-first`](habits/agent-first.md) | practice | The next reader is an agent with no memory of this session |
 | [`verify-dont-infer`](habits/verify-dont-infer.md) | practice | Check the thing itself, not a signal that stands in for it |
 | [`escalate-before-declaring-failure`](habits/escalate-before-declaring-failure.md) | practice | One blocked route is not a dead end |
+| [`own-capabilities-first`](habits/own-capabilities-first.md) | practice | Built-in beats external unless told or known otherwise |
 | [`one-subject-one-repo`](habits/one-subject-one-repo.md) | practice | Knowledge gets its own home, at maximum specificity |
 | [`ship-without-asking`](habits/ship-without-asking.md) | practice | Finished means deployed, not committed |
 | [`parallelise-without-asking`](habits/parallelise-without-asking.md) | practice | Spawn the agent, don't propose it |

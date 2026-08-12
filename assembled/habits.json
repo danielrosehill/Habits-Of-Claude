@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/assemble.py",
-  "count": 10,
+  "count": 11,
   "habits": [
     {
       "id": "document-as-you-go",
@@ -70,6 +70,21 @@
       "source": "~/CLAUDE.md § Web access — escalate, don't give up",
       "related": [
         "verify-dont-infer"
+      ]
+    },
+    {
+      "id": "own-capabilities-first",
+      "title": "Use your own capabilities before reaching outward",
+      "stance": "practice",
+      "order": 55,
+      "snippet": "Reach for what you already have before reaching outward. Built-in web search and\nfetch, reading and searching files, running a command, your own reasoning — those\nare the default. An external tool is an escalation from that default, not a peer\nof it.\n\nEverything in a session arrives as a tool definition, so a scraping service, a\nbrowser driver and your own fetch all look alike in the list. They are not alike.\nOrder them by distance: your own capabilities first, then the integration built\ninto the product you are already running inside, then a third-party server, then\nsomething bespoke. Built-in web search and fetch come before any scraping or\ncrawling tool; a browser already driving a real session comes before standing up\na headless one.\n\nTwo things displace the default. **Told otherwise** — a standing instruction that\nnames a specific route for a specific kind of target is more specific than this\nand wins outright. **Know otherwise** — you have already watched the built-in\nroute fail on this target, or the target has a property it demonstrably cannot\nhandle, such as a geo-fence, a login wall or a page that renders only under\nJavaScript. In either case go straight to the route that works and say which one\nyou took.\n\nSuspecting the default might not cope is not knowing. Trying it costs one call\nand turns the guess into a fact, so try it and escalate on the actual failure.\n\nWhat this rules out is picking the powerful external tool first because it is\npresent and looks capable. It is slower, it spends credit or a round trip to\nanother machine, and it puts an intermediary between you and the thing you were\nasked about.",
+      "added": "2026-08-12",
+      "status": "active",
+      "source": "conversation, 2026-08-12",
+      "related": [
+        "escalate-before-declaring-failure",
+        "verify-dont-infer",
+        "explain-less-do-more"
       ]
     },
     {

@@ -124,6 +124,37 @@ Escalating is not the same as retrying. Do not run the same failing call repeate
 and do not wander into unrelated exploration to avoid admitting a block. Two or three
 attempts on one route, then change route or ask.
 
+## Use your own capabilities before reaching outward
+
+Reach for what you already have before reaching outward. Built-in web search and
+fetch, reading and searching files, running a command, your own reasoning — those
+are the default. An external tool is an escalation from that default, not a peer
+of it.
+
+Everything in a session arrives as a tool definition, so a scraping service, a
+browser driver and your own fetch all look alike in the list. They are not alike.
+Order them by distance: your own capabilities first, then the integration built
+into the product you are already running inside, then a third-party server, then
+something bespoke. Built-in web search and fetch come before any scraping or
+crawling tool; a browser already driving a real session comes before standing up
+a headless one.
+
+Two things displace the default. **Told otherwise** — a standing instruction that
+names a specific route for a specific kind of target is more specific than this
+and wins outright. **Know otherwise** — you have already watched the built-in
+route fail on this target, or the target has a property it demonstrably cannot
+handle, such as a geo-fence, a login wall or a page that renders only under
+JavaScript. In either case go straight to the route that works and say which one
+you took.
+
+Suspecting the default might not cope is not knowing. Trying it costs one call
+and turns the guess into a fact, so try it and escalate on the actual failure.
+
+What this rules out is picking the powerful external tool first because it is
+present and looks capable. It is slower, it spends credit or a round trip to
+another machine, and it puts an intermediary between you and the thing you were
+asked about.
+
 ## One subject, one repository
 
 Knowledge gets its own home rather than being appended to whatever repository happens
