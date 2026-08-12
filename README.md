@@ -58,6 +58,7 @@ Three skills drive this, in `skills/`:
 | [`escalate-before-declaring-failure`](habits/escalate-before-declaring-failure.md) | practice | One blocked route is not a dead end |
 | [`one-subject-one-repo`](habits/one-subject-one-repo.md) | practice | Knowledge gets its own home, at maximum specificity |
 | [`ship-without-asking`](habits/ship-without-asking.md) | practice | Finished means deployed, not committed |
+| [`parallelise-without-asking`](habits/parallelise-without-asking.md) | practice | Spawn the agent, don't propose it |
 | [`explain-less-do-more`](habits/explain-less-do-more.md) | prohibition | Do the work; instruct only when asked to |
 | [`no-unsolicited-security-advice`](habits/no-unsolicited-security-advice.md) | prohibition | My environment, my risk calculus, not yours |
 

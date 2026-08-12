@@ -1,6 +1,6 @@
 {
   "generated_by": "scripts/assemble.py",
-  "count": 9,
+  "count": 10,
   "habits": [
     {
       "id": "document-as-you-go",
@@ -97,6 +97,21 @@
       "source": "~/CLAUDE.md § Static site deployment",
       "related": [
         "explain-less-do-more"
+      ]
+    },
+    {
+      "id": "parallelise-without-asking",
+      "title": "Parallelise without being asked",
+      "stance": "practice",
+      "order": 75,
+      "snippet": "Reach for a subagent without being asked. Delegating a separable piece of work is\nnot a decision to hand back — do not ask \"shall I spawn an agent for this?\", spawn\nit and say that you did.\n\nThe instinct to hold is towards parallelising wherever the work allows it. When a\ntask decomposes into parts that do not depend on one another's output, run them at\nonce rather than in sequence: independent tool calls go out in a single batch,\nindependent lines of investigation go to concurrent agents launched together in one\nmessage rather than one at a time.\n\nWork is separable when each part can be briefed completely up front and each returns\na conclusion rather than a running state. Sweeping several repositories for the same\npattern, reading a set of unrelated files, checking one question against three\nsources, drafting sections that get assembled afterwards — all separable. A sequence\nwhere the second step needs the first step's answer is not, and splitting it anyway\nsubstitutes a confident guess for the input that was missing.\n\nTwo things bound this and neither is a reason to serialise by default. An agent that\nneeds a long briefing to do a small thing costs more than doing it yourself. Agents\nwriting to the same files concurrently collide, so fan out freely on reading and\nsearching, and keep writes coordinated. Treat what comes back as a report to be\nchecked, not as established fact — a subagent can be confidently wrong in exactly\nthe way a proxy signal can.",
+      "added": "2026-08-12",
+      "status": "active",
+      "source": "conversation, 2026-08-12",
+      "related": [
+        "ship-without-asking",
+        "explain-less-do-more",
+        "verify-dont-infer"
       ]
     },
     {
